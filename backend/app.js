@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+import dotenv from'dotenv';
+import router from './routes/userRoutes.js';
+import mongoose from 'mongoose'
 dotenv.config()
 
 const dbURI = process.env.URI
@@ -11,6 +12,7 @@ mongoose.connect(dbURI)
   .catch(err=> console.error(err)
   )
 
+app.use(router);
 
 
 
