@@ -1,19 +1,19 @@
-const mongoose = require('mongoose');
+import  mongoose from 'mongoose';
 const { Schema } = mongoose;
 const userSchema = new Schema({
   username: {
-    username: String,
-    required: true,
+    type: String,
+    required: [true, 'Username is required'],
     unique: true,
   },
   email: {
-    username: String,
-    required: true,
+    type: String,
+    required: [true, ' email is required'],
     unique: true,
   },
   password: {
-    username: String,
-    required: true,
+    type: String,
+    required: [true, ' input your password']
   },
 }, { timestamps: true });
 export const User = mongoose.model('User', userSchema);
